@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS user_lists CASCADE;
+
+CREATE TABLE "user_lists" (
+  "id" SERIAL PRIMARY KEY NOT NULL,
+  "user_id" INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  "songlist_id" INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  "title" VARCHAR
+);

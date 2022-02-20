@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE "users" (
+  "id" SERIAL PRIMARY KEY NOT NULL,
+  "first_name" VARCHAR NOT NULL,
+  "last_name"  VARCHAR NOT NULL,
+  "email" VARCHAR NOT NULL,
+  "password" VARCHAR NOT NULL,
+  "created_at" TIMESTAMP DEFAULT NOW()
+);
