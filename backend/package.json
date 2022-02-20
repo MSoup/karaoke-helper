@@ -1,6 +1,17 @@
 {
+  "name": "node-postgres-api",
+  "version": "1.0.0",
+  "description": "RESTful API with Node.js, Express, and PostgreSQL",
+  "main": "app.js",
   "dependencies": {
     "axios": "^0.26.0",
+    "express": "^4.17.3",
     "pg": "^8.7.3"
+  },
+  "scripts": {
+    "serve": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
