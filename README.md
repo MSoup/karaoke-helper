@@ -20,7 +20,7 @@ An app that lets you save songs titles you want to sing!
 - Show album art from public API
 ## To-Do List
 - [x] Plan features
-- [ ] Plan database
+- [x] Plan database
 - [ ] Make wireframe
 - [ ] Create API
 - [ ] Make layout
