@@ -43,11 +43,16 @@ const deleteSong = (request, response) => {
     response.status(200).send(`First song in list is deleted.`);
     };
 
+const getAllUsers = (request, response) => {
+    response.status(200).json(userList);
+    };
+
 module.exports =
     {
         getAllSongs,
         getSongById,
         addSong,
         updateSong,
-        deleteSong
+        deleteSong,
+        getAllUsers
     }

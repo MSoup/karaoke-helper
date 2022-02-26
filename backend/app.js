@@ -11,6 +11,7 @@ app.listen(port, () => {
 
 const api = require('./api');
 
+app.get('/users/', api.getAllUsers);
 app.get('/songs/', api.getAllSongs);
 app.get('/song/:id', api.getSongById);
 app.post('/songs/', api.addSong);
