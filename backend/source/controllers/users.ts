@@ -1,4 +1,4 @@
-import {Request, Response, NextFunction } from 'express';
+import {Request, Response, NextFunction, response } from 'express';
 import axios, { AxiosResponse } from 'axios';
 
 interface User {
@@ -8,12 +8,52 @@ interface User {
     retrievedAt: String;
 }
 
+const Pool = require('pg').Pool
+const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
+})
+
+// error handler for pool, callback fires on error
+pool.on('error', (err, client) => {
+    console.error('Error:', err);
+});
+
+const query = `
+SELECT *
+FROM users
+`;
+
+pool.connect()
+    .then((client) => {
+        client.query(query)
+            .then(res => {
+                for (let row of res.rows) {
+                    console.log(row);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    })
+    .catch(err => {
+        console.error(err);
+    });
+
+
+
+
+
+
 const endpoints = {
     USERS: "https://jsonplaceholder.typicode.com/users"
 }
 
 // Gets all users from the fake endpoint
-const getUsers = async (req: Request, res: Response, next: NextFunction) => {
+const getUsers = async (req: Request, res: Response, next: NextFunction) => {    
     let result: AxiosResponse = await axios.get(endpoints.USERS)
     let users: [User] = result.data;
     return res.status(200).json({
