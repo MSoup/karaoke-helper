@@ -6,7 +6,7 @@ import routes from './routes/users';
 const router: Express = express();
 
 // This is for logging
-router.use(morgan('dev'));
+router.use(morgan('tiny'));
 
 // Parse request
 router.use(express.urlencoded({extended: false}))
