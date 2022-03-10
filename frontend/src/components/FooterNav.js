@@ -4,19 +4,19 @@
 function Footer() {
   return (
     <div className="Footer">
-      <span>
+      <span onClick={() => console.log('Home')}>
         Home
       </span>
-      <span>
+      <span onClick={() => console.log('Search')}>
         Search
       </span>
-      <span>
+      <span onClick={() => console.log('My Lists')}>
         My Lists
       </span>
-      <span>
+      <span onClick={() => console.log('Settings')}>
         Settings
       </span>
-      <span>
+      <span onClick={() => console.log('Profile')}>
         Profile
       </span>
     </div>
