@@ -31,10 +31,13 @@ Accent
   position: fixed;
   background-color: #3d5a80;
   height: 10vh;
-  width: 100%;
+  width: 94vw;
   display: flex;
+  flex-wrap: wrap;
   align-content: center;
-  justify-content: center;
+  justify-content: space-around;
+  justify-items: center;
+  padding: 0 3vw;
 }
 .Header > p, .Footer > p {
   margin: 0;

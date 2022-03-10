@@ -4,7 +4,21 @@
 function Footer() {
   return (
     <div className="Footer">
-      <p>Options</p>
+      <span>
+        Home
+      </span>
+      <span>
+        Search
+      </span>
+      <span>
+        My Lists
+      </span>
+      <span>
+        Settings
+      </span>
+      <span>
+        Profile
+      </span>
     </div>
   );
 }
