@@ -1,10 +1,11 @@
 // import './App.css';
 // import Main from './pages/Main'
 
-function Tile() {
+function Tile(props) {
+  const {title} = props;
   return (
     <div className="Tile">
-      <p>Tile</p>
+      <p>{title}</p>
     </div>
   );
 }

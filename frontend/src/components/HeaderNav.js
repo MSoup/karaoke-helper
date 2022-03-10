@@ -4,7 +4,7 @@
 function Header() {
   return (
     <div className="Header">
-      <p>Header</p>
+      <p>Karaoke Saver</p>
     </div>
   );
 }

@@ -1,0 +1,12 @@
+.Main {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.Tile {
+  margin: 5%;
+  width: 40%;
+  height: auto;
+  aspect-ratio: 1;
+  background-color: grey;
+}
