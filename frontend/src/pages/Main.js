@@ -2,7 +2,7 @@ import Tile from '../components/Tile'
 import './Main.css';
 
 function Main() {
-  const searchBar = <div id="search-bar">Search by Keyword</div>;
+  const searchBar = <input type="text" id="search-bar" placeholder="Search by Keyword" />;
   const searchCategories = ['Artist','Song Title','Album','Genre','History'];
   const changeSearch = category => {
     console.log(category);
