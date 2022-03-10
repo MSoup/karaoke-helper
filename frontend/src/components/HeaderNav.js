@@ -1,5 +1,4 @@
-// import './App.css';
-// import Main from './pages/Main'
+// Header bar with app name
 
 import { Typography } from "@mui/material";
 

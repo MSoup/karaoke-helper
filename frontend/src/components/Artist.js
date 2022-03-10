@@ -1,5 +1,4 @@
-// import './App.css';
-// import Main from './pages/Main'
+// Search by artist page
 
 function Artist(props) {
   return (

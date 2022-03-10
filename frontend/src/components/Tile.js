@@ -1,5 +1,4 @@
-// import './App.css';
-// import Main from './pages/Main'
+// Tile (search by xx) component on main page
 
 function Tile(props) {
   const {title} = props;

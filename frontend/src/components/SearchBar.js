@@ -1,5 +1,4 @@
-// import './App.css';
-// import Main from './pages/Main'
+// Search bar component on main page
 
 function SearchBar(props) {
   return (

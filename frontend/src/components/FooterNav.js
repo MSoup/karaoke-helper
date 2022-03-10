@@ -1,5 +1,4 @@
-// import './App.css';
-// import Main from './pages/Main'
+// Footer nav bar
 
 import { Button, ButtonGroup } from "@mui/material";
 
