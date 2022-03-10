@@ -10,15 +10,20 @@ Bright
 Accent
 #ee6c4d
 */
+.Content {
+  min-height: 76vh;
+  display: flex;
+  margin: 10vh 0;
+  padding: 2vh;
+  justify-content: center;
+  align-content: center;
+  background-color: #293241;
+  color: #e0fbfc;
+}
 .Main {
   display: flex;
   flex-wrap: wrap;
-  margin: 10vh 0;
-  padding: 2vh 2vh 0 2vh;
   justify-content: space-between;
-  align-content: flex-start;
-  background-color: #293241;
-  min-height: 87vh;
 }
 .Tile {
   width: 43vw;
@@ -26,6 +31,7 @@ Accent
   aspect-ratio: 1;
   margin-bottom: 2vh;
   background-color: #98c1d9;
+  color: #293241;
 }
 .Header, .Footer {
   position: fixed;
@@ -53,4 +59,11 @@ Accent
   height: 3rem;
   background-color: #e0fbfc;
   margin-bottom: 1rem;
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
