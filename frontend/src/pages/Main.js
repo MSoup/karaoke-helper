@@ -9,6 +9,7 @@ function Main() {
   }
   const categoryTiles = searchCategories
     .map(category => <Tile
+      key={category}
       title={category}
       />);
 
