@@ -1,14 +1,36 @@
 import './Main.css';
-
+import { Button, TextField, Box, Typography } from '@mui/material';
+import { flexbox } from '@mui/system';
 function SignIn() {
   return (
     <div className="sign-in">
-      <h1>Sign In</h1>
-      <label>Email</label>
-      <input type="text" />
-      <label>Password</label>
-      <input type="text" />
-      <button>Login</button>
+      <Typography variant='h3'>Sign In</Typography>
+
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1 },
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+        fullWidth
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          required
+          label="Email"
+          id="email"
+        />
+        <TextField
+          required
+          label="Password"
+          type="password"
+          id="password"
+          
+        />
+        <Button variant='contained'>Login</Button>
+      </Box>
       <p>No account? Click here to register.</p>
     </div>
   );
