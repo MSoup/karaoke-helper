@@ -12,8 +12,6 @@ function Main() {
       <Tile title={'Title'} />
       <Tile title={'Title'} />
       <Tile title={'Title'} />
-      <Tile title={'Title'} />
-      <Tile title={'Title'} />
     </div>
   );
 }
