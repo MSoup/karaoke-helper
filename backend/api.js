@@ -43,7 +43,7 @@ const deleteSong = (request, response) => {
     response.status(200).send(`First song in list is deleted.`);
     };
 
-const getAllUsers = (request, response) => {
+const getAllUsers = async (request, response) => {
     response.status(200).json(userList);
     };
 

@@ -10,6 +10,7 @@ app.listen(port, () => {
 
 
 const api = require('./api');
+const db = require('./db');
 
 app.get('/users/', api.getAllUsers);
 app.get('/songs/', api.getAllSongs);
@@ -17,3 +18,9 @@ app.get('/song/:id', api.getSongById);
 app.post('/songs/', api.addSong);
 app.put('/song/:id', api.updateSong);
 app.delete('/song/:id', api.deleteSong);
+
+// Home page
+app.get('/', (req, res) => {
+    res.render('index');
+    });
+    
