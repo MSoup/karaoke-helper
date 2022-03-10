@@ -4,8 +4,13 @@ import './Main.css';
 function Main() {
   const searchBar = <div id="search-bar">Search by Keyword</div>;
   const searchCategories = ['Artist','Song Title','Album','Genre','History'];
-
-  const categoryTiles = searchCategories.map(category => <Tile title={category} />);
+  const changeSearch = category => {
+    console.log(category);
+  }
+  const categoryTiles = searchCategories
+    .map(category => <Tile
+      title={category}
+      />);
 
   return (
     <div className="Main">
