@@ -13,7 +13,7 @@ Accent
 .Main {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10vh;
+  margin: 10vh 0;
   padding: 2vh 2vh 0 2vh;
   justify-content: space-between;
   align-content: flex-start;
