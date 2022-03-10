@@ -1,24 +1,33 @@
 // import './App.css';
 // import Main from './pages/Main'
 
+import { Button, ButtonGroup } from "@mui/material";
+
 function Footer() {
   return (
     <div className="Footer">
-      <span onClick={() => console.log('Home')}>
-        Home
-      </span>
-      <span onClick={() => console.log('Search')}>
-        Search
-      </span>
-      <span onClick={() => console.log('My Lists')}>
-        My Lists
-      </span>
-      <span onClick={() => console.log('Settings')}>
-        Settings
-      </span>
-      <span onClick={() => console.log('Profile')}>
-        Profile
-      </span>
+      <ButtonGroup variant='contained' sx={{height: '100%'}} fullWidth>
+        <Button
+          onClick={() => console.log('Home')}
+        >
+          Home
+        </Button>
+        <Button
+          onClick={() => console.log('Search')}
+        >
+          Search
+        </Button>
+        <Button
+          onClick={() => console.log('Settings')}
+        >
+          Settings
+        </Button>
+        <Button
+          onClick={() => console.log('Profile')}
+        >
+          Profile
+        </Button>
+      </ButtonGroup>
     </div>
   );
 }

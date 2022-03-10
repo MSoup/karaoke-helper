@@ -1,10 +1,12 @@
 // import './App.css';
 // import Main from './pages/Main'
 
+import { Typography } from "@mui/material";
+
 function Header() {
   return (
     <div className="Header">
-      <h1>Karaoke Saver</h1>
+      <Typography variant="h3">Karaoke Saver</Typography>
     </div>
   );
 }
