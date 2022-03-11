@@ -13,10 +13,10 @@ export default function Album(props) {
 
   return (
     <article className="album">
-      <img className="album__thumbnail" src={albumImages[0]} alt="Album" />
+      <img className="album-result-img" src={albumImages[0]} alt="Album" />
       <div className=''>
-        <div className="album__name">{albumName}</div>
-        <div className="album__artist">{artistName}</div>
+        <div className="album-name">{albumName}</div>
+        <div className="album-artist">{artistName}</div>
       </div>
     </article>
   );

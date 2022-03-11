@@ -4,7 +4,7 @@ import './Main.css';
 import Results from '../components/Results';
 import { useEffect, useState } from 'react';
 
-const imgArr = ['https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Flaaawenizah%2Fspotify-cover-art%2F&psig=AOvVaw31qZCw0j0ctBy7_HPM3gmy&ust=1647114401707000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKiTt7rpvvYCFQAAAAAdAAAAABAD'];
+const imgArr = ['https://i.pinimg.com/550x/f5/51/7c/f5517cb156cf4176e929137e3363c08d.jpg'];
 const artistArr = ['Clara','Alice'];
 const searchResults = [
   {
