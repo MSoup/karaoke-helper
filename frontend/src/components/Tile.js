@@ -1,11 +1,11 @@
 // Tile (search by xx) component on main page
 
 function Tile(props) {
-  const {title, term, setTerm} = props;
-  
+  const {title, type, setType} = props;
+  const tileClass = (type == title) ? 'tile tile-selected' : 'tile';
   return (
-    <div className="Tile" onClick={() => setTerm(title)}>
-      {(term == title) ? <strong><p>{title}</p></strong> : <p>{title}</p>}
+    <div className={tileClass} onClick={() => setType(title)}>
+      {(type == title) ? <strong><p>{title}</p></strong> : <p>{title}</p>}
     </div>
   );
 }

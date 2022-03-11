@@ -7,6 +7,7 @@ import Results from '../components/Results';
 
 function Main() {
   const [term, setTerm] = useState("");
+  const [type, setType] = useState("");
   const [results, setResults] = useState([]);
   
   const limit = 10;
@@ -14,7 +15,7 @@ function Main() {
     params: { limit: 10, offset: 0 },
     headers: {
         Accept: 'application/json',
-        Authorization: 'Bearer ' + process.env.BEARER_TOKEN,
+        Authorization: 'Bearer ' + 'BQBkqCLQtiKX5AJXVDund3FpJgwvBrHVJ5w0Iq3rGyoVCuU9GApz0ye8KeRIjAGbJqJIiaJKsJaGWsBePvI',
         'Content-Type': 'application/json'
     }
   };
@@ -30,13 +31,13 @@ function Main() {
     });
   }, [term]);
 
-  const searchCategories = ['Yoasobi','Daft Punk','Genre','History'];
+  const searchCategories = ['Artist','Song','Album','Anime','Genre','History'];
   const categoryTiles = searchCategories
     .map(category => <Tile
       key={category}
       title={category}
-      term={term}
-      setTerm={setTerm}
+      type={type}
+      setType={setType}
       />);
   return (
     <div className="Main">
