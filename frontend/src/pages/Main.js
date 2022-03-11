@@ -15,7 +15,7 @@ function Main() {
     params: { limit: 10, offset: 0 },
     headers: {
         Accept: 'application/json',
-        Authorization: 'Bearer ' + 'BQBkqCLQtiKX5AJXVDund3FpJgwvBrHVJ5w0Iq3rGyoVCuU9GApz0ye8KeRIjAGbJqJIiaJKsJaGWsBePvI',
+        Authorization: 'Bearer ' + process.env.BEARER_TOKEN,
         'Content-Type': 'application/json'
     }
   };
