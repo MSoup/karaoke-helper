@@ -74,7 +74,11 @@ Accent
   width: 100%;
 }
 .album {
-  
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: justify;
 }
 .album-result-img {
   width: 30vw;
