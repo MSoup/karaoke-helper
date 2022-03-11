@@ -6,7 +6,7 @@ export default function Album(props) {
   // });
   // const { albumImages, albumName, artistName, isExplicit } = props;
   // const { albumImages, albumName, artistName, isExplicit } = searchResults;
-  const albumImages = props.album.images[0].url;
+  const albumImage = props.album.images[0].url;
   const albumName = props.album.name;
   const songName = props.name;
   const artistsArr = props.artists;
@@ -17,7 +17,7 @@ export default function Album(props) {
 
   return (
     <article className="album">
-      <img className="album-result-img" src={albumImages} alt="Album" />
+      <img className="album-result-img" src={albumImage} alt="Album" />
       <div>
         <div className="song-name">{songName}</div>
         <div className="album-name">{albumName}</div>

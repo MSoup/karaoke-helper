@@ -32,7 +32,7 @@ function Main() {
     });
   }, [term]);
 
-  const searchCategories = ['Universe','Yoasobi','Daft Punk','Genre','History'];
+  const searchCategories = ['Yoasobi','Daft Punk','Genre','History'];
   const categoryTiles = searchCategories
     .map(category => <Tile
       key={category}
