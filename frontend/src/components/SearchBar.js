@@ -9,7 +9,7 @@ export default function SearchBar(props) {
 
   return (
     <section className="search">
-      <form className="search-bar" onSubmit={event => event.preventDefault()}>
+      <form onSubmit={event => event.preventDefault()}>
         <input
           spellCheck="false"
           placeholder="Search Artists"
