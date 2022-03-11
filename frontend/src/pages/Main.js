@@ -5,23 +5,21 @@ import Results from '../components/Results';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// CONSTANTS FOR API CALLS
-var options = {
-    params: { limit: 10, offset: 0 },
-    headers: {
-        Accept: 'application/json',
-        Authorization: 'Bearer ' + process.env.BEARER_TOKEN,
-        'Content-Type': 'application/json'
-    }
-};
-
 function Main() {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
   
   const limit = 10;
   useEffect(() => {
-    var url = "https://api.spotify.com/v1/search?q=".concat(term, "&type=track&limit=").concat(limit);
+    const options = {
+      params: { limit: 10, offset: 0 },
+      headers: {
+          Accept: 'application/json',
+          Authorization: 'Bearer ' + process.env.BEARER_TOKEN,
+          'Content-Type': 'application/json'
+      }
+    };
+    const url = `https://api.spotify.com/v1/search?q=${term}&type=track&limit=${limit}`;
     axios["default"].get(url, options)
         .then(data => {
         const results =  data.data.tracks.items;
