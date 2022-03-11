@@ -16,7 +16,7 @@ var options = {
 };
 
 function Main() {
-  const [term, setTerm] = useState("connect");
+  const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
   
   const limit = 10;
@@ -32,7 +32,7 @@ function Main() {
     });
   }, [term]);
 
-  const searchCategories = ['Connect','Yoasobi','Daft Punk','Genre','History'];
+  const searchCategories = ['Universe','Yoasobi','Daft Punk','Genre','History'];
   const categoryTiles = searchCategories
     .map(category => <Tile
       key={category}

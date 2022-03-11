@@ -78,10 +78,11 @@ Accent
   width: 100%;
   justify-content: flex-start;
   align-items: center;
-  text-align: justify;
+  text-align: left;
+  margin-bottom: 1rem;
 }
 .album-result-img {
-  width: 30vw;
+  width: 20vw;
   height: auto;
 }
 .album-result-name {
