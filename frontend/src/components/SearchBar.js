@@ -1,9 +1,25 @@
 // Search bar component on main page
+import React, { useState, useEffect, useCallback } from "react";
 
-function SearchBar(props) {
+export default function SearchBar(props) {
+  const [value, setValue] = useState("");
+  // useEffect(() => {
+  //   onSearch(term);
+  // }, [term, onSearch]);
+
   return (
-    <input type="text" id="search-bar" placeholder="Search by Keyword" />
+    <section className="search">
+      <form className="search-bar" onSubmit={event => event.preventDefault()}>
+        <input
+          spellCheck="false"
+          placeholder="Search Artists"
+          id="search-bar"
+          name="search"
+          type="text"
+          value={value}
+          onChange={event => setValue(event.target.value)}
+        />
+      </form>
+    </section>
   );
 }
-
-export default SearchBar;
