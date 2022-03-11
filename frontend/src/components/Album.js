@@ -14,7 +14,7 @@ export default function Album(props) {
   return (
     <article className="album">
       <img className="album-result-img" src={albumImages[0]} alt="Album" />
-      <div className=''>
+      <div>
         <div className="album-name">{albumName}</div>
         <div className="album-artist">{artistName}</div>
       </div>
