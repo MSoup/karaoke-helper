@@ -1,8 +1,11 @@
 // Search bar component on main page
-import { Input } from "@mui/material";
+import { Cancel, Search } from "@mui/icons-material";
+import { IconButton, Input, InputBase } from "@mui/material";
+import { Box } from "@mui/system";
 import React, { useState, useEffect, useCallback } from "react";
 
 export default function SearchBar(props) {
+  const {type} = props;
   function useDebounce(input, ms) {
     const [debounced, setDebounced] = useState("");
   
@@ -24,19 +27,21 @@ export default function SearchBar(props) {
   }, [term, onSearch]);
 
   return (
-    <section className="search">
-      <form onSubmit={event => event.preventDefault()}>
-        <Input
+    <Box sx={{ flexGrow: 1 }}>
+      <form className="search" onSubmit={event => event.preventDefault()}>
+        <Search fontSize="large" />
+        <InputBase
           spellCheck="false"
-          placeholder="Search by Keyword"
+          placeholder={`Search by ${type}`}
           id="search-bar"
           name="search"
           type="search"
           value={value}
           onChange={event => setValue(event.target.value)}
           fullWidth
-        />
+          />
+        <Cancel fontSize="large" />
       </form>
-    </section>
+    </Box>
   );
 }

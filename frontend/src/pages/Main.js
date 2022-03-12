@@ -4,10 +4,11 @@ import axios from 'axios';
 import Tile from '../components/Tile'
 import SearchBar from '../components/SearchBar'
 import Results from '../components/Results';
+import { Grid } from '@mui/material';
 
 function Main() {
   const [term, setTerm] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Keyword");
   const [results, setResults] = useState([]);
   
   const limit = 10;
@@ -34,19 +35,26 @@ function Main() {
 
   const searchCategories = ['Artist','Song','Album','Anime','Genre','History'];
   const categoryTiles = searchCategories
-    .map(category => <Tile
-      key={category}
-      title={category}
-      type={type}
-      setType={setType}
-      />);
+    .map(category => <Grid item xs={6} lg={4}>
+        <Tile
+          key={category}
+          title={category}
+          type={type}
+          setType={setType}
+        />
+      </Grid>);
   return (
     <div className="Main">
-      <SearchBar onSearch={term => setTerm(term)} />
       {/* <SearchBar /> */}
+      <SearchBar type={type} onSearch={term => setTerm(term)} />
+
+      {/* Search Results */}
       <Results results={results} />
+
       {/* Tiles */}
-      {categoryTiles}
+      <Grid container spacing={2}>
+        {categoryTiles}
+      </Grid>
     </div>
   );
 }
