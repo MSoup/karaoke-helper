@@ -1,4 +1,6 @@
 import React from "react";
+import { AddBox } from '@mui/icons-material';
+import { Card } from "@mui/material";
 
 export default function Album(props) {
   // const albumInfoClass = classnames("album__info", {
@@ -16,13 +18,16 @@ export default function Album(props) {
       .join(', ');
 
   return (
-    <article className="album">
+    <Card className="album" sx={{ bgcolor: '#3d5a80' }}>
       <img className="album-result-img" src={albumImage} alt="Album" />
-      <div>
+      <div className="album-info">
         <div className="song-name">{songName}</div>
         <div className="album-name">{albumName}</div>
         <div className="album-artist">{artists}</div>
       </div>
-    </article>
+      <div className="add-song">
+        <AddBox fontSize="large" />
+      </div>
+    </Card>
   );
 }

@@ -82,15 +82,24 @@ Accent
   justify-content: flex-start;
   align-items: center;
   text-align: left;
-  margin-bottom: 1rem;
 }
 .album-result-img {
   width: 20vw;
   height: auto;
 }
-.album-result-name {
-  
+.album-info {
+  width: 100%;
 }
-.album-result-artist {
+.song-name {
+  font-weight: 700;
+}
+.album-name {
 
+}
+.album-artist {
+
+}
+.song-add {
+  /* display: flex; */
+  justify-content: flex-end;
 }
