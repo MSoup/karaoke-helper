@@ -45,6 +45,7 @@ Accent
   justify-content: space-around;
   justify-items: center;
   padding: 0 3vw;
+  z-index: 2;
 }
 .Header > p, .Footer > p {
   margin: 0;
