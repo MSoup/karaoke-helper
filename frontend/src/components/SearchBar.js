@@ -1,11 +1,11 @@
 // Search bar component on main page
 import { Cancel, Search } from "@mui/icons-material";
-import { IconButton, Input, InputBase } from "@mui/material";
+import { Button, IconButton, Input, InputBase } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState, useEffect, useCallback } from "react";
 
 export default function SearchBar(props) {
-  const {type, onCancel} = props;
+  const {type, onCancel, value, setValue} = props;
   function useDebounce(input, ms) {
     const [debounced, setDebounced] = useState("");
   
@@ -17,7 +17,6 @@ export default function SearchBar(props) {
     return debounced;
   }
 
-  const [value, setValue] = useState("");
   const term = useDebounce(value, 400);
 
   const onSearch = useCallback(props.onSearch, [term]);
@@ -40,7 +39,7 @@ export default function SearchBar(props) {
           onChange={event => setValue(event.target.value)}
           fullWidth
           />
-        <Cancel fontSize="large" onClick={() => onCancel} />
+        <Button onClick={() => onCancel()}>Cancel</Button>
       </form>
     </Box>
   );

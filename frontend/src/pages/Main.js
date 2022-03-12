@@ -11,10 +11,12 @@ function Main() {
   const [term, setTerm] = useState("");
   const [type, setType] = useState("track");
   const [results, setResults] = useState([]);
-  
+  const [value, setValue] = useState("");
+
   const onCancel = () => {
-    setTerm('Keyword');
-    // setValue('');
+    setTerm('');
+    setResults([]);
+    setValue('');
   }
 
   const limit = 10;
@@ -53,7 +55,7 @@ function Main() {
   return (
     <div className="Main">
       {/* <SearchBar /> */}
-      <SearchBar type={type} onCancel={onCancel} onSearch={term => setTerm(term)} />
+      <SearchBar type={type} onCancel={onCancel} onSearch={term => setTerm(term)} value={value} setValue={setValue} />
 
       {/* Search Results */}
       <Results results={results} type={type} />
