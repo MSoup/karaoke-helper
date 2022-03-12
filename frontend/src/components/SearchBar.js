@@ -5,7 +5,7 @@ import { Box } from "@mui/system";
 import React, { useState, useEffect, useCallback } from "react";
 
 export default function SearchBar(props) {
-  const {type} = props;
+  const {type, onCancel} = props;
   function useDebounce(input, ms) {
     const [debounced, setDebounced] = useState("");
   
@@ -40,7 +40,7 @@ export default function SearchBar(props) {
           onChange={event => setValue(event.target.value)}
           fullWidth
           />
-        <Cancel fontSize="large" />
+        <Cancel fontSize="large" onClick={() => onCancel} />
       </form>
     </Box>
   );

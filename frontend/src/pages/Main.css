@@ -90,14 +90,8 @@ Accent
 .album-info {
   width: 100%;
 }
-.song-name {
+.title {
   font-weight: 700;
-}
-.album-name {
-
-}
-.album-artist {
-
 }
 .song-add {
   /* display: flex; */

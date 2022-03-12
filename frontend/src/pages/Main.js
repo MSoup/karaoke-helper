@@ -5,27 +5,33 @@ import Tile from '../components/Tile'
 import SearchBar from '../components/SearchBar'
 import Results from '../components/Results';
 import { Grid } from '@mui/material';
+import { formControlUnstyledClasses } from '@mui/base';
 
 function Main() {
   const [term, setTerm] = useState("");
-  const [type, setType] = useState("Keyword");
+  const [type, setType] = useState("track");
   const [results, setResults] = useState([]);
   
+  const onCancel = () => {
+    setTerm('Keyword');
+    // setValue('');
+  }
+
   const limit = 10;
   const options = {
     params: { limit: 10, offset: 0 },
     headers: {
         Accept: 'application/json',
-        // Authorization: 'Bearer ' + process.env.BEARER_TOKEN,
-        Authorization: 'Bearer ' + 'BQDITpK7NEZvpBhnuEer3DiY3IUkUrviZW3hS8UThIwSMA0IVcMlbWB_Ga0z36ljCvvsM_yFkQC5TbF23ZY',
+        Authorization: 'Bearer ' + process.env.BEARER_TOKEN,
         'Content-Type': 'application/json'
     }
   };
   useEffect(() => {
-    const url = `https://api.spotify.com/v1/search?q=${term}&type=track&limit=${limit}`;
+    const url = `https://api.spotify.com/v1/search?q=${term}&type=${type}`;
     axios["default"].get(url, options)
       .then(data => {
-      const results =  data.data.tracks.items;
+      console.log(data);
+      const results = data.data[`${type}s`].items;
       setResults(results);
       console.log('results ----> ',results);
     })["catch"](function (err) {
@@ -33,7 +39,7 @@ function Main() {
     });
   }, [term]);
 
-  const searchCategories = ['Artist','Song','Album','Anime','Genre','History'];
+  const searchCategories = ['Artist','Track','Album','Playlist','Keyword'];
   const categoryTiles = searchCategories
     .map(category => <Grid item xs={6} lg={4}>
         <Tile
@@ -43,13 +49,14 @@ function Main() {
           setType={setType}
         />
       </Grid>);
+
   return (
     <div className="Main">
       {/* <SearchBar /> */}
-      <SearchBar type={type} onSearch={term => setTerm(term)} />
+      <SearchBar type={type} onCancel={onCancel} onSearch={term => setTerm(term)} />
 
       {/* Search Results */}
-      <Results results={results} />
+      <Results results={results} type={type} />
 
       {/* Tiles */}
       <Grid container spacing={2}>

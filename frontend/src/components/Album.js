@@ -3,28 +3,36 @@ import { AddBox } from '@mui/icons-material';
 import { Card } from "@mui/material";
 
 export default function Album(props) {
-  // const albumInfoClass = classnames("album__info", {
-  //   "album__info--explicit": props.collectionExplicitness === "explicit"
-  // });
-  // const { albumImages, albumName, artistName, isExplicit } = props;
-  // const { albumImages, albumName, artistName, isExplicit } = searchResults;
-  const albumImage = props.album.images[0].url;
-  const albumName = props.album.name;
-  const songName = props.name;
-  const artistsArr = props.artists;
-  const isExplicit = props.explicit;
-  const artists = artistsArr
-      .map(artist => artist.name)
-      .join(', ');
+  const {type} = props;
+
+  const album = 
+    (type === 'artist') ? <>
+      <img className="album-result-img" src={props.images[0].url} alt="Artist" />
+      <div className="album-info">
+        <div className="title">{props.name}</div>
+        <div className="subtitle">{props.genres.join(', ')}</div>
+      </div>
+      </>
+    : (type === 'track') ? <>
+      <img className="album-result-img" src={props.album.images[0].url} alt="Artist" />
+      <div className="album-info">
+        <div className="title">{props.name}</div>
+        <div className="subtitle">{props.album.name}</div>
+        <div className="title">{props.artists.map(artist => artist.name).join(', ')}</div>
+      </div>
+      </>
+    : (type === 'album') ? <>
+      <img className="album-result-img" src={props.images[0].url} alt="Artist" />
+      <div className="album-info">
+        <div className="title">{props.name}</div>
+        <div className="subtitle">{props.artists.map(artist => artist.name).join(', ')}</div>
+      </div>
+      </>
+    : <p>Nothing found.</p>
 
   return (
     <Card className="album" sx={{ bgcolor: '#3d5a80' }}>
-      <img className="album-result-img" src={albumImage} alt="Album" />
-      <div className="album-info">
-        <div className="song-name">{songName}</div>
-        <div className="album-name">{albumName}</div>
-        <div className="album-artist">{artists}</div>
-      </div>
+      {album}
       <div className="add-song">
         <AddBox fontSize="large" />
       </div>
