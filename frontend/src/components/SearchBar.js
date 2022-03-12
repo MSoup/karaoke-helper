@@ -1,4 +1,5 @@
 // Search bar component on main page
+import { Input } from "@mui/material";
 import React, { useState, useEffect, useCallback } from "react";
 
 export default function SearchBar(props) {
@@ -25,14 +26,15 @@ export default function SearchBar(props) {
   return (
     <section className="search">
       <form onSubmit={event => event.preventDefault()}>
-        <input
+        <Input
           spellCheck="false"
           placeholder="Search by Keyword"
           id="search-bar"
           name="search"
-          type="text"
+          type="search"
           value={value}
           onChange={event => setValue(event.target.value)}
+          fullWidth
         />
       </form>
     </section>
