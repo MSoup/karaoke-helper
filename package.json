@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2"
   }
 }

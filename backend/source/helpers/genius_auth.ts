@@ -1,7 +1,7 @@
 import axios from 'axios'
 import got from 'got'
-import JSDOM from 'jsdom'
-import { parse } from 'node-html-parser';
+// import JSDOM from 'jsdom'
+// import { parse } from 'node-html-parser';
 import load_env from "./load_env"
 
 // Load environment variables
@@ -17,14 +17,14 @@ const headers = {
 const BASE_URL = `https://api.genius.com`
 
 
-const getSongs = async (artistName: string, limit: number =10): Promise<object[]> => {
+const getSongs = async (artistName: string, limit =10): Promise<object[]> => {
     const endpoint = "search"
     const options = {
         headers,
         params: {q: artistName}
     }
 
-    let results: object[] = []
+    const results: object[] = []
 
     await axios.get(`${BASE_URL}/${endpoint}`, options)
         .then(res => {
@@ -56,7 +56,7 @@ const getLyricsUrl = async (songId: number): Promise<string> => {
         headers,
     }
 
-    let result: string = ""
+    const result = ""
 
     await axios.get(`${BASE_URL}/${endpoint}/${songId}`, options)
         .then(res => {
@@ -87,7 +87,7 @@ const main = async () => {
     got("https://genius.com/Genius-romanizations-yoasobi-gunjou-romanized-lyrics")
         .then(res => {
             const dom = res.body
-            console.log(res)
+            console.log(dom)
             // console.log(parse(dom).structure)
         })
         .catch(err => console.log(err))
