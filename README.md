@@ -1,5 +1,11 @@
 # karaoke-helper
 An app that lets you save songs titles you want to sing!
+
+# Running Locally
+
+TODO
+
+
 ## Features
 ### Core
 - Add songs by title to a list

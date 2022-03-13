@@ -5,9 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "@types/axios": "^0.14.0",
-    "@types/express": "^4.17.13",
     "@types/morgan": "^1.9.3",
-    "@types/node": "^17.0.21",
     "axios": "^0.26.0",
     "chalk": "^4.1.2",
     "dotenv": "^16.0.0",
@@ -29,7 +27,8 @@
     "db:reset": "node ./db/reset.js"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.21",
     "nodemon": "^2.0.15"
-  },
-  "type": "module"
+  }
 }

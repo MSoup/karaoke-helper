@@ -1,16 +1,11 @@
-import * as dotenv from 'dotenv'
-import path from 'path'
 import axios from 'axios'
 import got from 'got'
 import JSDOM from 'jsdom'
 import { parse } from 'node-html-parser';
+import load_env from "./load_env"
 
-// Hide .env in production
-if (process.env.NODE_ENV !== 'production') {
-    dotenv.config(
-        {path: path.resolve(__dirname, "../../.env")}
-    );
-  }
+// Load environment variables
+load_env()
 
 // CONSTANTS FOR API CALLS
 const headers = {
@@ -92,9 +87,9 @@ const main = async () => {
     got("https://genius.com/Genius-romanizations-yoasobi-gunjou-romanized-lyrics")
         .then(res => {
             const dom = res.body
-            console.log(parse(dom).structure)
+            console.log(res)
+            // console.log(parse(dom).structure)
         })
         .catch(err => console.log(err))
-
 }
 main()
