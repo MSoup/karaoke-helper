@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv'
 import * as path from 'path';
 
-export default function load_env(production: boolean = false): void {
+export default function load_env(production = false): void {
     // load environment variables if dev
     if (production !== true) {
         dotenv.config(
