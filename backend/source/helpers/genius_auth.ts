@@ -1,7 +1,4 @@
 import axios from 'axios'
-import got from 'got'
-// import JSDOM from 'jsdom'
-// import { parse } from 'node-html-parser';
 import load_env from "./load_env"
 
 // Load environment variables
@@ -66,30 +63,3 @@ const getLyricsUrl = async (songId: number): Promise<string> => {
         .catch(err => console.log(err))
     return result
 }
-
-const main = async () => {
-    // Test case 1:
-    // Get Yoasobi Songs
-    // await getSongs("Yoasobi")
-    //     .then(result => console.log(result))
-
-    // Test case 2:
-    // Get BTS Songs
-    // await getSongs("BTS")
-        // .then(result => console.log(result))
-
-    // Song ID 5918673 
-    // Should return lyricsUrl for YOASOBI - Gunjou (Romanized)
-    // await getLyricsUrl(5918673)
-    //     .then(result => console.log(result))
-
-    // parse HTML and get a JSDOM object
-    got("https://genius.com/Genius-romanizations-yoasobi-gunjou-romanized-lyrics")
-        .then(res => {
-            const dom = res.body
-            console.log(dom)
-            // console.log(parse(dom).structure)
-        })
-        .catch(err => console.log(err))
-}
-main()
