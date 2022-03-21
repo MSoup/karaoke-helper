@@ -12,7 +12,7 @@ describe('load_env', () => {
     })
 
     it("should NOT load env variables when production is true", () => {
-        expect(load_env({production: true})).toThrow()
+        expect(() => load_env({production: true})).toThrow()
     })
 
 })
