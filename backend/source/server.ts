@@ -6,7 +6,7 @@ import getCookie from "./helpers/getCookie";
 import axios from 'axios';
 import cookieParser from 'cookie-parser';
 
-load_env()
+load_env({production: false})
 
 const router: Express = express();
 

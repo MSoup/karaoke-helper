@@ -1,7 +1,8 @@
 import * as dotenv from 'dotenv'
 import * as path from 'path';
+import {Production} from "./load_env.d"
 
-export default function load_env({production}): void {
+export default function load_env({production}:Production): void {
     console.log("Production set to", production)
     // load environment variables if dev
     if (production !== true) {
@@ -11,11 +12,8 @@ export default function load_env({production}): void {
             }
         );
       }
-    else if (production === false) {
-        console.log("Please set production settings appropriately before enabling production")
-        throw 'Not ready for production'
-    }
     else {
-        throw 'Please pass in parameters in the form of {production: true/false}'
+        console.log("Please set production settings appropriately before enabling production")
+        throw new Error('Not ready for production')
     }
 }
