@@ -1,10 +1,14 @@
 # karaoke-helper
-An app that lets you save songs titles you want to sing!
+An app that lets you save songs you want to sing!
 
 # Running Locally
 
-TODO
+`npm install`
+`npm run dev`
 
+# Contributing to Tests
+
+TODO
 
 ## Features
 ### Core
