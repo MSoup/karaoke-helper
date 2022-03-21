@@ -3,8 +3,10 @@ An app that lets you save songs you want to sing!
 
 # Running Locally
 
-> `npm install`
-> `npm run dev`
+```
+npm install
+npm run dev
+```
 
 # Contributing to Tests
 
