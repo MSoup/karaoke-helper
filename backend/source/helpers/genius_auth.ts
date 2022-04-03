@@ -2,9 +2,8 @@ import axios from 'axios'
 import load_env from "./load_env"
 
 // Load environment variables
-load_env()
+load_env({production: false})
 
-// CONSTANTS FOR API CALLS
 const headers = {
     'Authorization': `Bearer ${process.env.GENIUS_ACCESS_TOKEN}`,
     'Content-Type': 'application/json',
@@ -13,8 +12,7 @@ const headers = {
 
 const BASE_URL = `https://api.genius.com`
 
-
-const getSongs = async (artistName: string, limit =10): Promise<object[]> => {
+const getSongs = async (artistName: string, limit=10): Promise<object[]> => {
     const endpoint = "search"
     const options = {
         headers,
