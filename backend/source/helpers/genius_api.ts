@@ -1,14 +1,6 @@
 import axios from 'axios'
 import load_env from "./load_env"
 
-interface Song {
-    id: number,
-    title: string,
-    artist_names: string,
-    api_path: string,
-    album_thumbnail: string,
-    full_thumbnail: string
-}
 // Load environment variables
 load_env({production: false})
 

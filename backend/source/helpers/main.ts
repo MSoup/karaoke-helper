@@ -2,18 +2,19 @@ import { getSongsFromArtist, getLyricsUrl } from "./genius_api"
 
 // Goal: Find "In The End", "Yoru Ni Kakeru", "Living Again"
 
-
-const storeSongs = async (artist: string) => {
+// TODO
+const storeSongs = async (artist: string): Promise<Song[]> => {
     const songList = await getSongsFromArtist(artist)
     songList.forEach(song => {
         console.log(song.id)
     })
+    return songList
 }
 
 storeSongs("Linkin Park")
 
 // Above should return a list of songs for Linkin Park!
-//     song: {
+//     {
 //       id: 49719,
 //       title: 'In the End',
 //       artist_names: 'Linkin Park',
