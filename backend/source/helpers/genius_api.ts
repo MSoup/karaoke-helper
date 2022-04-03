@@ -1,6 +1,14 @@
 import axios from 'axios'
 import load_env from "./load_env"
 
+interface Song {
+    id: number,
+    title: string,
+    artist_names: string,
+    api_path: string,
+    album_thumbnail: string,
+    full_thumbnail: string
+}
 // Load environment variables
 load_env({production: false})
 
@@ -12,14 +20,14 @@ const headers = {
 
 const BASE_URL = `https://api.genius.com`
 
-const getSongs = async (artistName: string, limit=10): Promise<object[]> => {
+export const getSongsFromArtist = async (artistName: string, limit=10): Promise<Song[]> => {
     const endpoint = "search"
     const options = {
         headers,
         params: {q: artistName}
     }
 
-    const results: object[] = []
+    const results: Song[] = []
 
     await axios.get(`${BASE_URL}/${endpoint}`, options)
         .then(res => {
@@ -31,21 +39,25 @@ const getSongs = async (artistName: string, limit=10): Promise<object[]> => {
                     const song = {
                         id: hit.result.id,
                         title: hit.result.title,
+                        artist_names: hit.result.artist_names,
                         api_path: hit.result.api_path,
                         album_thumbnail: hit.result.song_art_image_thumbnail_url,
                         full_thumbnail: hit.result.song_art_image_url,
                     }
-                    results.push({song})
+                    results.push(song)
                 }
             })
         })
-        .catch(err => {return err})
+        .catch(err => {
+            console.log("Could not connect to artists endpoint")
+            throw err
+        })
 
     return results.slice(0,limit)
 
 }
 
-const getLyricsUrl = async (songId: number): Promise<string> => {
+export const getLyricsUrl = async (songId: number): Promise<string> => {
     const endpoint = "songs"
     const options = {
         headers,

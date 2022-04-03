@@ -2,13 +2,13 @@ import {Request, Response, NextFunction, response } from 'express';
 import axios, { AxiosResponse } from 'axios';
 
 interface User {
-    id: Number;
-    firstName: String;
-    lastName: String;
-    retrievedAt: String;
+    id: number;
+    firstName: string;
+    lastName: string;
+    retrievedAt: string;
 }
 
-const Pool = require('pg').Pool
+import Pool = require('pg')
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,

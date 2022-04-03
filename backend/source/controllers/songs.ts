@@ -13,7 +13,7 @@ const options = {
   },
 };
 
-const getSongsByTrack = function (query :String, limit :Number = 10 ) {
+const getSongsByTrack = function (query: string, limit = 10 ) {
   console.log(options);
   const url=`https://api.spotify.com/v1/search?q=${query}&type=track&limit=${limit}`;
 
