@@ -1,5 +1,6 @@
 import axios from 'axios'
 import load_env from "./load_env"
+import type {Song} from "./typings"
 
 // Load environment variables
 load_env({production: false})
@@ -55,12 +56,12 @@ export const getLyricsUrl = async (songId: number): Promise<string> => {
         headers,
     }
 
-    const result = ""
+    let result = ""
 
     await axios.get(`${BASE_URL}/${endpoint}/${songId}`, options)
         .then(res => {
             const songUrl = res.data.response.song.url
-            console.log(songUrl)
+            result = songUrl
         })
         .catch(err => console.log(err))
     return result
