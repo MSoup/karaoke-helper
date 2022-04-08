@@ -2,29 +2,33 @@ import { getSongsFromArtist, getLyricsUrl } from "./genius_api"
 import type { Song } from "./typings"
 import axios from 'axios'
 import jsdom from 'jsdom'
+import { getLyrics, getSong } from 'genius-lyrics-api';
 
 // Goal: Find "In The End", "Yoru Ni Kakeru", "Living Again"
 
-const fetchSongs = async (artist: string): Promise<Song[]> => {
-    const songList = await getSongsFromArtist(artist)
-    songList.forEach(song => {
-        console.log(song)
-    })
-    return songList
-}
+import load_env from "./load_env"
 
-const fetchLyrics = async (id: number) => {
-    const songUrl = await getLyricsUrl(id)
-    const doc = await axios.get(songUrl)
-    // TODO: parse the grab the class="lyrics" div and save the lyrics into a JSON???
-    const {JSDOM} = jsdom
+// Load environment variables
+load_env({production: false})
 
-    const document = new JSDOM(doc.data)
-    console.log(document.serialize())
-    // console.log(dom.window.document.querySelector(".lyrics").textContent)
-}
+const options = {
+	apiKey: process.env.GENIUS_ACCESS_TOKEN,
+	title: 'In The End',
+	artist: 'Linkin Park',
+	optimizeQuery: true
+};
 
-fetchLyrics(49719)
+getLyrics(options).then((lyrics) => console.log(lyrics));
+
+getSong(options).then((song) =>
+	console.log(`
+	${song.id}
+	${song.title}
+	${song.url}
+	${song.albumArt}
+	${song.lyrics}`)
+);
+
 
 // Above should return a list of songs for Linkin Park!
 //     {
