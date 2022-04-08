@@ -44,5 +44,5 @@ router.use((req, res, next) => {
 
 /** Server */
 const httpServer = http.createServer(router);
-const PORT = process.env.PORT ?? 6060;
+const PORT = 6060;
 httpServer.listen(PORT, () => console.log(`The karaoke server is running on port ${PORT}`));

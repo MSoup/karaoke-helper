@@ -8,7 +8,7 @@ load_env({production: false})
 const router: Express = express();
 
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID
-const SPOTIFY_SECRET = process.env.SPOTIFY_SECRET
+const SPOTIFY_SECRET = process.env.SPOTIFY_CLIENT_SECRET
 const SPOTIFY_REDIRECT_URL = process.env.SPOTIFY_REDIRECT_URI
 const SCOPE = 'user-read-private user-read-email'
 const stateKey = 'spotify_auth_state'
@@ -48,6 +48,10 @@ router.get('/callback', function(req, res) {
     if (state === null || state !== storedState) {
         res.redirect('/#' + new URLSearchParams({error: 'state_mismatch'}))
     } 
+    else if (req.query.error) {
+        console.log(req.query.error)
+        res.redirect('/#' + new URLSearchParams({error: `${req.query.error}`}))
+    }
     else {
         console.log("Else triggered in oauth flow")
         res.clearCookie(stateKey)
@@ -74,12 +78,13 @@ router.get('/callback', function(req, res) {
             const refresh_token = data.refresh_token
             console.log(access_token)
             console.log(refresh_token)
+            console.log(data)
             // TODO : how to send access/refresh token back to client? or do I even need to do this?
-            res.status(200).json({
-                access_token: access_token,
-                refresh_token: refresh_token,
-                date: new Date().toDateString,
-            })
+            // res.json({
+            //     access_token: access_token,
+            //     refresh_token: refresh_token,
+            //     date: new Date().toDateString,
+            // })
         })
         .catch(err => console.log(err))
     })
